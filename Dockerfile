@@ -14,9 +14,9 @@ RUN apt-get install -y go-agent git subversion
 RUN apt-get clean
 RUN sed -i 's/GO_SERVER=127.0.0.1/GO_SERVER=${ENV_GO_SERVER}/g' /etc/default/go-agent
 RUN sed -i 's/DAEMON=Y/DAEMON=N/g' /etc/default/go-agent
-RUN sed -i 's/su\ -\ go\ -c/su\ go\ -c/g' /etc/init.d/go-agent
+#RUN sed -i 's/su\ -\ go\ -c/su\ go\ -c/g' /etc/init.d/go-agent
 
-CMD /bin/su - go -c /usr/share/go-agent/agent.sh go-agent
+CMD /bin/su go -c /usr/share/go-agent/agent.sh go-agent
 
 
 #ENV LDAP_BASEDN dc=piratenpartei,dc=ch
